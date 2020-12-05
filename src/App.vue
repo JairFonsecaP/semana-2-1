@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container-fluid">
-      <clima></clima>
+      <clima :ciudades="ciudades"></clima>
 
       <!-- Inicio de la sección de miembros -->
       <div class="row justify-content-center mb-5">
@@ -22,10 +22,15 @@ export default {
   name: "App",
   components: {
     clima,
-    TeamCard,
+    TeamCard
   },
   data() {
     return {
+      ciudades:[
+          'Bogota',
+          'Lima',
+          'La Paz'
+        ],
       team: [
         {
           codigo: 1,
