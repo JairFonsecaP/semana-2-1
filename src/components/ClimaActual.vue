@@ -4,7 +4,10 @@
             <div id='clima_temperatura'> 
                 <button @click="darClima()"><b>Muestrame el clima en mi ciudad</b></button>
             </div>
-            <div id='clima_sol'></div>
+            <div id='clima_sol'>
+<p></p>
+
+            </div>
             <div id='clima_nuvosidad'></div>
             <div id='clima_presion'></div>
 

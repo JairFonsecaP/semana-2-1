@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     
-    <clima></clima>
+    <clima ></clima>
   </div>
 </template>
 
 <script>
-import clima from './components/clima.vue'
+import clima from './components/ClimaActual.vue'
 export default {
   name: 'App',
   components: {
