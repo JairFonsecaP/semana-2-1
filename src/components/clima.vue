@@ -1,15 +1,15 @@
 <template>
-    <div id="clima">
-        <div id="weatherContainer">
-            <div id='weatherContainer__temperatura'> 
-                <button @click="darClima()">Muestrame el clima en mi ciudad</button>
+    
+        <div id='clima'>
+            <div id='clima_temperatura'> 
+                <button @click="darClima()"><b>Muestrame el clima en mi ciudad</b></button>
             </div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div id='clima_sol'></div>
+            <div id='clima_nuvosidad'></div>
+            <div id='clima_presion'></div>
 
         </div>
-    </div>
+   
 </template>
 
 <script>
@@ -17,11 +17,6 @@ export default {
   name: 'clima',
   props: {
     msg: String
-  },
-  data(){
-      return{
-        resultJson : []
-      }
   },
   methods : {
     
@@ -48,28 +43,50 @@ export default {
         printOnScreen(resultJson);
         }
         }
-        function printOnScreen(dataText){
-            const weatherContainer = document.getElementById('weatherContainer__temperatura')
-            const {name,main,weather,wind,sys} = dataText
-            console.log(weather)
+        function printOnScreen(info){
+            const clima_temperatura = document.getElementById('clima_temperatura');
+            const clima_sol = document.getElementById('clima_sol');
+            //const nuvosidad = document.getElementById('clima_nuvosidad');
+            //const presion = document.getElementById('clima_presion');           
 
-            let ciudad ='Usted está en  '+name +', '+sys.country+'.';
-            const city = document.createElement('h2');
-            city.textContent = ciudad;
-
-            let temperatura ='La temperatura es: '+ main.temp + ' °C';
-            const temp = document.createElement('h3')
-            temp.textContent = temperatura;
+            const {name,main,weather,wind,sys} = info;
+            console.log(weather);
+          
+            const city = document.createElement('h4');
+            city.textContent = 'Usted está en  '+name +', '+sys.country+'.';
             
-            let viento ='La velocidad del viento es '+ wind.speed + ' km/h';
-            const velocidad = document.createElement('h3')
-            velocidad.textContent = viento;
-
+            const temp = document.createElement('p');
+            temp.textContent = 'La temperatura es: '+ main.temp + ' °C';  
             
+            const maximaT = document.createElement('p');
+            maximaT.textContent = 'Maxima '+ main.temp_max + ' °C';
+          
+            const minimaT = document.createElement('p');
+            minimaT.textContent = 'Mínima: '+ main.temp_min + ' °C';
+          
+            const realFeel = document.createElement('p');
+            realFeel.textContent = 'Se siente como:  '+ main.feels_like + ' °C';
+            
+            const amanecer =  document.createElement('p');
+            amanecer.textContent = 'Amaneció: ' + sys.sunrise + '.';
 
-            weatherContainer.appendChild(city);
-            weatherContainer.appendChild(temp); 
-            weatherContainer.appendChild(velocidad);    
+            const atardecer =  document.createElement('p');
+            atardecer.textContent = 'Atardecerá: ' + sys.sunset + '.';
+            
+            const velocidad = document.createElement('p');
+            velocidad.textContent = 'La velocidad del viento es '+ wind.speed + ' km/h';
+
+
+            clima_temperatura.appendChild(city);
+            clima_temperatura.appendChild(temp); 
+            clima_temperatura.appendChild(maximaT);
+            clima_temperatura.appendChild(minimaT);
+            clima_temperatura.appendChild(realFeel);
+            clima_sol.appendChild(amanecer);
+            clima_sol.appendChild(atardecer);
+            clima_temperatura.appendChild(velocidad);   
+            
+            
         }
         navigator.geolocation.getCurrentPosition(localizacion, error);
     },
