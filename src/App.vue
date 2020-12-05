@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     
-    <clima ></clima>
+    <clima :ciudades="ciudades"></clima>
   </div>
 </template>
 
@@ -11,6 +11,16 @@ export default {
   name: 'App',
   components: {
     clima
+  },
+  data(){
+    return {
+      ciudades:[
+        'Bogota',
+        'Lima',
+        'La Paz'
+      ],
+      ubicacion:'Jair'
+    }
   }
 }
 </script>
