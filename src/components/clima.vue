@@ -49,7 +49,19 @@ export default {
             //const nuvosidad = document.getElementById('clima_nuvosidad');
             //const presion = document.getElementById('clima_presion');           
 
-            const {name,main,weather,wind,sys} = info;
+            function cambiarHora(unix)
+            {
+              let fecha = new Date(unix*1000);
+              let horas = fecha.getUTCHours().toString().padStart(2,0);
+              let minutos = fecha.getUTCMinutes().toString().padStart(2,0);
+              let segundos = fecha.getUTCSeconds().toString().padStart(2,0);              
+              return horas +':'+minutos+':' + segundos;
+              
+            }
+
+            //const atardecerHora = cambiarHora(sys.sunset);
+
+            const {name,main,weather,wind,sys, timezone} = info;
             console.log(weather);
           
             const city = document.createElement('h4');
@@ -68,10 +80,10 @@ export default {
             realFeel.textContent = 'Se siente como:  '+ main.feels_like + ' °C';
             
             const amanecer =  document.createElement('p');
-            amanecer.textContent = 'Amaneció: ' + sys.sunrise + '.';
+            amanecer.textContent = 'Hoy amaneció a las ' + cambiarHora(sys.sunrise + timezone ) + '.';
 
             const atardecer =  document.createElement('p');
-            atardecer.textContent = 'Atardecerá: ' + sys.sunset + '.';
+            atardecer.textContent = 'Hoy atardecerá a las ' + cambiarHora(sys.sunset + timezone) + '.';
             
             const velocidad = document.createElement('p');
             velocidad.textContent = 'La velocidad del viento es '+ wind.speed + ' km/h';
@@ -79,9 +91,9 @@ export default {
 
             clima_temperatura.appendChild(city);
             clima_temperatura.appendChild(temp); 
-            clima_temperatura.appendChild(maximaT);
-            clima_temperatura.appendChild(minimaT);
             clima_temperatura.appendChild(realFeel);
+            clima_temperatura.appendChild(maximaT);
+            clima_temperatura.appendChild(minimaT);            
             clima_sol.appendChild(amanecer);
             clima_sol.appendChild(atardecer);
             clima_temperatura.appendChild(velocidad);   
