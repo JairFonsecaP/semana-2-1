@@ -9,20 +9,23 @@
           <team-card :member="item"></team-card>
         </div>
       </div>
-      <!-- Fin de la sección de miembros -->
-    </div>
-  </div>
+      <!-- Fin de la sección de miembros -->  
+      <footer-equipo :description="description" :team="team"> </footer-equipo>
+    </div> 
+  </div> 
 </template>
 
 <script>
 import clima from "./components/ClimaActual.vue";
 import TeamCard from "./components/TeamCard.vue";
+import FooterEquipo from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     clima,
     TeamCard,
+    FooterEquipo
   },
   data() {
     return {
@@ -73,6 +76,7 @@ export default {
             "https://raw.githubusercontent.com/jpcorreap/semana-1-1/develop/src/img/JairFonseca.jpg",
         },
       ],
+      description: "Somos un grupo de jovenes apasinados por la tecnologia y el desarrollo tanto web como de software y apps"
     };
   },
 };
