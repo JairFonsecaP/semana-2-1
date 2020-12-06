@@ -1,10 +1,35 @@
 <template>
   <div id="app">
-    <div class="container-fluid">
+    <header>
+    <h1>Sprint 2 Equipo 1</h1>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <a class="navbar-brand" href="#">Inicio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#clima">Clima <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#team">Equipo</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</header>
+
+  
+    <div class="container-fluid" id="clima">
       <clima :ciudades="ciudades"></clima>
 
       <!-- Inicio de la sección de miembros -->
-      <div class="row justify-content-center mb-5">
+      <div class="row justify-content-center mb-5" id='team'>
         <div class="col mt-5" v-for="(item, i) of team" :key="i">
           <team-card :member="item"></team-card>
         </div>
