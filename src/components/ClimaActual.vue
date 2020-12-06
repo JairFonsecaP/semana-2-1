@@ -7,6 +7,7 @@
         <div id='clima_sol' class="row">
           <div class="p-3 mb-2 bg-light col-md-6" id="ubicacion">
             <h4>Usted está en {{ubi.nombre}}</h4>
+            <img :src="ubi.icn">
             <ul class="list-group">
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Temperatura
@@ -40,7 +41,8 @@
           </div>
           <hr>
           <div v-for="itm in ciudades" :key="itm" class="p-3 mb-2 bg-light col-md-6" :id="generaId(itm)">
-            <h4>{{city[itm].nombre}}.</h4>
+            <h4>{{city[itm].nombre}}</h4>
+            <img :src="city[itm].icn">
             <ul class="list-group">
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Temperatura
@@ -100,7 +102,8 @@ export default {
           min:'',
           viento:'',
           amanece:'',
-          atardece:''
+          atardece:'',
+          icn:''
         };
     }
     me.ubi = {
@@ -111,7 +114,8 @@ export default {
       min:'',
       viento:'',
       amanece:'',
-      atardece:''
+      atardece:'',
+      icn:''
     };
     for(let inf of me.ciudades){
       me.climaCiudad(inf);
@@ -156,7 +160,7 @@ export default {
               return horas +':'+minutos+':' + segundos;
               
             }
-            const {name,main,wind,sys, timezone} = info;me.ubi = {
+            const {name,main,weather,wind,sys, timezone} = info;me.ubi = {
                   nombre:`${name} ${sys.country}`,
                   temperatura:`${main.temp}`,
                   sensacion:`${main.feels_like}`,
@@ -164,7 +168,8 @@ export default {
                   min:`${main.temp_min}`,
                   viento:`${wind.speed}`,
                   amanece:`${cambiarHora(sys.sunrise + timezone )}`,
-                  atardece:`${cambiarHora(sys.sunset + timezone )}`
+                  atardece:`${cambiarHora(sys.sunset + timezone )}`,
+                  icn:`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
             } 
             
         }
@@ -191,7 +196,7 @@ export default {
               return horas +':'+minutos+':' + segundos;
               
             }
-            const {name,main,wind,sys, timezone} = info;          
+            const {name,main,weather,wind,sys, timezone} = info;         
             me.city[ciudad] = {
                   nombre:`${name} ${sys.country}`,
                   temperatura:`${main.temp}`,
@@ -200,7 +205,8 @@ export default {
                   min:`${main.temp_min}`,
                   viento:`${wind.speed}`,
                   amanece:`${cambiarHora(sys.sunrise + timezone )}`,
-                  atardece:`${cambiarHora(sys.sunset + timezone )}`
+                  atardece:`${cambiarHora(sys.sunset + timezone )}`,
+                  icn:`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
             }          
         }
         apiWeather(ciudad);
