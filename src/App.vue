@@ -1,4 +1,5 @@
 <template>
+
   <div id="app">
     <div class="container-fluid">
       <!-- Inicio de la sección de carousel -->
@@ -31,10 +32,17 @@
       </div>
       <!-- Fin de la sección de carousel -->
 
+
+  <div>
+    <!-- Importa el header -->
+    <header-equipo :description="description" :team="team"></header-equipo>
+    <div id="app">
+    <div class="container-fluid" id="clima">
+
       <clima :ciudades="ciudades"></clima>
 
       <!-- Inicio de la sección de miembros -->
-      <div class="row justify-content-center mb-5">
+      <div class="row justify-content-center mb-5" id="team">
         <div class="col mt-5" v-for="(item, i) of team" :key="i">
           <team-card :member="item"></team-card>
         </div>
@@ -43,13 +51,20 @@
       <footer-equipo :description="description" :team="team"> </footer-equipo>
     </div>
   </div>
+
+  </div>
+
 </template>
 
 <script>
 import clima from "./components/ClimaActual.vue";
 import TeamCard from "./components/TeamCard.vue";
 import FooterEquipo from "./components/Footer.vue";
+
 import CarouselItem from "./components/CarouselItem.vue";
+
+import HeaderEquipo from "./components/Header.vue";
+
 
 export default {
   name: "App",
@@ -57,11 +72,16 @@ export default {
     clima,
     TeamCard,
     FooterEquipo,
+
     CarouselItem,
+
+    HeaderEquipo
+
   },
   data() {
     return {
       ciudades: ["Bogota", "Lima", "La Paz"],
+
       images: [
         {
           src:
@@ -94,6 +114,7 @@ export default {
           class: "carousel-item",
         },
       ],
+
       team: [
         {
           codigo: 1,
@@ -159,8 +180,11 @@ export default {
   font-family: "Noto Sans TC", sans-serif;
 }
 
+
 #carousel {
   margin-left: 25%;
   margin-right: 25%;
 }
+
 </style>
+

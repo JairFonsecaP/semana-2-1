@@ -36,7 +36,6 @@ ul {
     width: 100%;
     padding: 10px;
     font-size: 14px;
-    font-family: Roboto;
     background-color: rgb(71, 64, 68);
     color: white;
     line-height: 1;
@@ -46,4 +45,5 @@ ul {
 .flexbox-container > div:first-child {
     margin-right: 1px;
 }
+
 </style>

@@ -66,7 +66,7 @@
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Hoy Atardece
-                <span class="text-success"><strong>{{city[itm].atardece}},</strong></span>
+                <span class="text-success"><strong>{{city[itm].atardece}}</strong></span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Velocidad del Viento
