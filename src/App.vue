@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div class="container-fluid">
+      <carousel :images="images"></carousel>
       <clima :ciudades="ciudades"></clima>
 
       <!-- Inicio de la sección de miembros -->
@@ -19,13 +20,15 @@
 import clima from "./components/ClimaActual.vue";
 import TeamCard from "./components/TeamCard.vue";
 import FooterEquipo from "./components/Footer.vue";
+import Carousel from "./components/Carousel.vue";
 
 export default {
   name: "App",
   components: {
     clima,
     TeamCard,
-    FooterEquipo
+    FooterEquipo,
+    Carousel
   },
   data() {
     return {
@@ -34,6 +37,13 @@ export default {
           'Lima',
           'La Paz'
         ],
+      images:[
+        'http://www.guiasybaquianos.com/wp-content/uploads/2018/12/Medallo-1.jpg',
+        'https://wp.es.aleteia.org/wp-content/uploads/sites/7/2020/10/WEB3-LA-PAZ-BOLIVIA-Shutterstock_1791153806-R.M.-Nunes.jpg',
+        'https://bogota.gov.co/sites/default/files/styles/1050px/public/2020-08/delitos-en-bogota.jpg',
+        'https://www.elespectador.com/resizer/ci87WLmzKKK6AP0z9xO13peAOww=/657x0/cloudfront-us-east-1.images.arcpublishing.com/elespectador/O3YYRMBOSZF2BEZSA4OZSSJHTM.jpg',
+        'https://www.lugaresturisticosdeargentina.com/wp-content/uploads/2018/02/chile-argentina-turismo.jpg'
+      ],
       team: [
         {
           codigo: 1,
