@@ -9,7 +9,7 @@
         <div id="carousel" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <carousel-item
-              v-for="(image, i) of images"
+              v-for="(image, i) of image"
               :key="i"
               :image="image"
             ></carousel-item>
@@ -75,7 +75,7 @@ export default {
     return {
       ciudades: ["Bogota", "Lima", "La Paz"],
 
-      images: [
+      image: [
         {
           src:
             "http://www.guiasybaquianos.com/wp-content/uploads/2018/12/Medallo-1.jpg",
@@ -115,7 +115,7 @@ export default {
           descripcion:
             "Apasionado por la tecnología y por cómo esta puede mejorarlo todo, desde las actividades de la vida cotidiana hasta los proyectos más complejos. Me gustan las mascotas, los idiomas y aprender nuevas cosas todos los días.",
           rol: "Arquitecto de Software",
-          imagen:
+          image:
             "https://raw.githubusercontent.com/jpcorreap/semana-1-1/develop/src/img/JuanPablo.png",
         },
         {
@@ -124,7 +124,7 @@ export default {
           descripcion:
             "Soy matemático de la universidad Distrital Francisco José de Caldas, apasionado por la tecnología y la música. En mis tiempos libres me gusta leer sobre matemáticas y tocar la guitarra.",
           rol: "Backend",
-          imagen:
+          image:
             "https://raw.githubusercontent.com/jpcorreap/semana-1-1/develop/src/img/WilsonBajaca.png",
         },
         {
@@ -133,7 +133,7 @@ export default {
           descripcion:
             "Heiler Alfonso Meléndez Mena, estudiante de ingeniería de software, me apasiana la programación y el desarrollo. Mi aspiración es llegar a un excelente arquitecto de Software.",
           rol: "Analista de Software",
-          imagen:
+          image:
             "https://raw.githubusercontent.com/jpcorreap/semana-1-1/develop/src/img/HeilerMelendez.png",
         },
         {
@@ -142,7 +142,7 @@ export default {
           descripcion:
             "Apasionada por la naturaleza, la música, las comunicaciones y la tecnología. Familiar, calida y alegre.",
           rol: "Frontend",
-          imagen:
+          image:
             "https://raw.githubusercontent.com/jpcorreap/semana-1-1/develop/src/img/MishellArboleda.jpeg",
         },
         {
@@ -151,7 +151,7 @@ export default {
           descripcion:
             "Vivo en Tierra del fuego, Chile. Tengo Dos huskies siberianos que son mi vida, me encanta la nieve, el frío y viajar, me gusta montar bicicleta, nadar y programar.",
           rol: "Tester",
-          imagen:
+          image:
             "https://raw.githubusercontent.com/jpcorreap/semana-1-1/develop/src/img/JairFonseca.jpg",
         },
       ],

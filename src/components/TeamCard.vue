@@ -2,7 +2,7 @@
   <div class="card bg-black">
     <div class="d-flex justify-content-center p-2">
       <img
-        :src="member.imagen"
+        :src="member.image"
         alt="Foto de integrante del equipo"
         width="200px"
         height="200px"
