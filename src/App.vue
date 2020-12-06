@@ -1,61 +1,54 @@
 <template>
-
-  <div id="app">
-    <div class="container-fluid">
-      <!-- Inicio de la sección de carousel -->
-      <div id="carousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <carousel-item
-            v-for="(image, i) of images"
-            :key="i"
-            :image="image"
-          ></carousel-item>
-        </div>
-        <a
-          class="carousel-control-prev"
-          href="#carousel"
-          role="button"
-          data-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carousel"
-          role="button"
-          data-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      <!-- Fin de la sección de carousel -->
-
-
   <div>
     <!-- Importa el header -->
     <header-equipo :description="description" :team="team"></header-equipo>
+
     <div id="app">
-    <div class="container-fluid" id="clima">
-
-      <clima :ciudades="ciudades"></clima>
-
-      <!-- Inicio de la sección de miembros -->
-      <div class="row justify-content-center mb-5" id="team">
-        <div class="col mt-5" v-for="(item, i) of team" :key="i">
-          <team-card :member="item"></team-card>
+      <div class="container-fluid">
+        <!-- Inicio de la sección de carousel -->
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <carousel-item
+              v-for="(image, i) of images"
+              :key="i"
+              :image="image"
+            ></carousel-item>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carousel"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carousel"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
+        <!-- Fin de la sección de carousel -->
+
+        <clima :ciudades="ciudades" :city="city" :ubi="ubi"></clima>
+
+        <!-- Inicio de la sección de miembros -->
+        <div class="row justify-content-center mb-5" id="team">
+          <div class="col mt-5" v-for="(item, i) of team" :key="i">
+            <team-card :member="item"></team-card>
+          </div>
+        </div>
+        <!-- Fin de la sección de miembros -->
+        <footer-equipo :description="description" :team="team" id="footer"> </footer-equipo>
       </div>
-      <!-- Fin de la sección de miembros -->
-      <footer-equipo :description="description" :team="team"> </footer-equipo>
     </div>
   </div>
-
-  </div>
-
 </template>
-
 <script>
 import clima from "./components/ClimaActual.vue";
 import TeamCard from "./components/TeamCard.vue";
@@ -184,6 +177,7 @@ export default {
 #carousel {
   margin-left: 25%;
   margin-right: 25%;
+  margin-bottom: 80px;
 }
 
 </style>
