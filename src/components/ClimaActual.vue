@@ -31,7 +31,7 @@
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Hoy Atardece
-                <span class="text-success"><strong>{{ubi.atardece}},</strong></span>
+                <span class="text-success"><strong>{{ubi.atardece}}</strong></span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Velocidad del Viento
