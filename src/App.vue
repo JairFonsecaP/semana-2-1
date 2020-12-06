@@ -1,64 +1,41 @@
 <template>
-  <div id="app">
-    <header>
-    <h1>Sprint 2 Equipo 1</h1>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-     <a class="navbar-brand" href="#">Inicio</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#clima">Clima <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#team">Equipo</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-</header>
-
-  
+  <div>
+    <!-- Importa el header -->
+    <header-equipo :description="description" :team="team"></header-equipo>
+    <div id="app">
     <div class="container-fluid" id="clima">
       <clima :ciudades="ciudades"></clima>
 
       <!-- Inicio de la sección de miembros -->
-      <div class="row justify-content-center mb-5" id='team'>
+      <div class="row justify-content-center mb-5" id="team">
         <div class="col mt-5" v-for="(item, i) of team" :key="i">
           <team-card :member="item"></team-card>
         </div>
       </div>
-      <!-- Fin de la sección de miembros -->  
+      <!-- Fin de la sección de miembros -->
       <footer-equipo :description="description" :team="team"> </footer-equipo>
-    </div> 
-  </div> 
+    </div>
+  </div>
+  </div>
 </template>
 
 <script>
 import clima from "./components/ClimaActual.vue";
 import TeamCard from "./components/TeamCard.vue";
 import FooterEquipo from "./components/Footer.vue";
+import HeaderEquipo from "./components/Header.vue";
 
 export default {
   name: "App",
   components: {
     clima,
     TeamCard,
-    FooterEquipo
+    FooterEquipo,
+    HeaderEquipo
   },
   data() {
     return {
-      ciudades:[
-          'Bogota',
-          'Lima',
-          'La Paz'
-        ],
+      ciudades: ["Bogota", "Lima", "La Paz"],
       team: [
         {
           codigo: 1,
@@ -106,7 +83,8 @@ export default {
             "https://raw.githubusercontent.com/jpcorreap/semana-1-1/develop/src/img/JairFonseca.jpg",
         },
       ],
-      description: "Somos un grupo de jovenes apasinados por la tecnologia y el desarrollo tanto web como de software y apps"
+      description:
+        "Somos un grupo de jovenes apasinados por la tecnologia y el desarrollo tanto web como de software y apps",
     };
   },
 };
